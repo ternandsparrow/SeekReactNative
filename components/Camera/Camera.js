@@ -12,6 +12,7 @@ import {
   StatusBar
 } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
+import { NavigationEvents } from "react-navigation";
 
 import { colors } from "../../styles/global";
 import styles from "../../styles/camera";
@@ -130,6 +131,12 @@ class CameraScreen extends Component<Props> {
     }
   }
 
+  resumeCamera() {
+    if ( this.camera ) {
+      this.camera.resumePreview();
+    }
+  }
+
   showError( err ) {
     this.setState( {
       error: err || "Permission to save photos denied"
@@ -244,6 +251,11 @@ class CameraScreen extends Component<Props> {
         permissionDialogTitle="Permission to use camera"
         permissionDialogMessage="We need your permission to use your camera phone"
       >
+        <NavigationEvents
+          onWillFocus={() => {
+            this.resumeCamera();
+          }}
+        />
         <StatusBar hidden />
         <CameraTopNav
           navigation={navigation}

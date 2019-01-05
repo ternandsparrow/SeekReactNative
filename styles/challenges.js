@@ -68,7 +68,7 @@ export default StyleSheet.create( {
     width: width / 3 - 2,
     height: 138,
     paddingHorizontal: padding.medium,
-    marginBottom: margins.medium
+    marginBottom: Platform.OS === "android" ? margins.medium : margins.small
   },
   image: {
     width: "100%",
