@@ -1,3 +1,5 @@
+const { Platform } = require( "react-native" );
+
 export const colors = {
   white: "#F5FCFF",
   darkBlue: "#37535e",
@@ -16,11 +18,11 @@ export const colors = {
 };
 
 export const fonts = {
-  default: "Whitney-Medium",
+  default: Platform.OS === "ios" ? "Whitney-Medium" : "Whitney-Medium-Pro",
   checkboxes: "FontAwesome",
-  semibold: "Whitney-Semibold",
-  playful: "Riffic-Bold",
-  book: "Whitney-Book"
+  semibold: Platform.OS === "ios" ? "Whitney-Semibold" : "Whitney-Semibold-Pro",
+  playful: Platform.OS === "ios" ? "Riffic-Bold" : "riffic-bold",
+  book: Platform.OS === "ios" ? "Whitney-Book" : "Whitney-Book-Pro"
 };
 
 export const fontSize = {
@@ -30,7 +32,8 @@ export const fontSize = {
   header: 20,
   buttonText: 18,
   text: 16,
-  smallText: 14
+  smallText: 14,
+  extraSmallText: 13
 };
 
 export const margins = {

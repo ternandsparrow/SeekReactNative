@@ -57,14 +57,13 @@ export default StyleSheet.create( {
   mainText: {
     maxWidth: 350,
     flexWrap: "wrap",
-    marginLeft: margins.small,
-    fontWeight: "100"
+    fontFamily: fonts.default,
+    marginLeft: margins.small
   },
   text: {
     marginLeft: margins.medium,
     fontFamily: fonts.default,
     fontSize: fontSize.text,
-    fontWeight: "500",
     color: colors.black
   }
 } );

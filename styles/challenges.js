@@ -1,4 +1,4 @@
-import { StyleSheet, Platform } from "react-native";
+import { StyleSheet, Platform, Dimensions } from "react-native";
 import {
   colors,
   fonts,
@@ -6,6 +6,8 @@ import {
   margins,
   padding
 } from "./global";
+
+const { width } = Dimensions.get( "screen" );
 
 export default StyleSheet.create( {
   safeContainer: {
@@ -25,7 +27,7 @@ export default StyleSheet.create( {
     justifyContent: "space-between"
   },
   header: {
-    marginTop: Platform.OS === "android" ? margins.medium + 10 : margins.medium
+    marginTop: margins.medium
   },
   headerText: {
     marginLeft: margins.medium,
@@ -49,8 +51,7 @@ export default StyleSheet.create( {
     maxWidth: 200,
     color: colors.white,
     fontFamily: fonts.playful,
-    fontSize: fontSize.buttonText,
-    fontWeight: "900"
+    fontSize: fontSize.buttonText
   },
   taxonChooser: {
     paddingRight: padding.large
@@ -64,16 +65,21 @@ export default StyleSheet.create( {
     alignItems: "center"
   },
   gridCell: {
-    width: 105,
+    width: width / 3 - 2,
     height: 138,
-    paddingHorizontal: padding.medium
+    paddingHorizontal: padding.medium,
+    marginBottom: margins.medium
+  },
+  image: {
+    width: "100%",
+    aspectRatio: 1.2
   },
   gridCellContents: {
     borderRadius: 5,
     overflow: "hidden"
   },
   cellTitle: {
-    height: 45,
+    height: 41,
     backgroundColor: colors.darkBlue,
     padding: padding.medium,
     alignItems: "flex-start",
@@ -84,7 +90,7 @@ export default StyleSheet.create( {
   cellTitleText: {
     color: colors.white,
     fontFamily: fonts.default,
-    fontSize: fontSize.smallText,
+    fontSize: fontSize.extraSmallText,
     paddingTop: padding.extraSmall
   },
   footer: {

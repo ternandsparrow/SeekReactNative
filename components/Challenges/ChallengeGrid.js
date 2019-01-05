@@ -49,10 +49,7 @@ const ChallengeGrid = ( {
           >
             <View style={ styles.gridCellContents }>
               <Image
-                style={ {
-                  width: "100%",
-                  aspectRatio: 1.1
-                } }
+                style={styles.image}
                 source={ { uri: item.default_photo.medium_url } }
               />
               <View style={ styles.cellTitle }>

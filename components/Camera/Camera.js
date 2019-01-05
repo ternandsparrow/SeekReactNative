@@ -240,6 +240,7 @@ class CameraScreen extends Component<Props> {
         style={{ flex: 1 }}
         flashMode={flash}
         zoom={zoom}
+        pauseAfterCapture
         permissionDialogTitle="Permission to use camera"
         permissionDialogMessage="We need your permission to use your camera phone"
       >

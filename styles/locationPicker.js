@@ -27,8 +27,7 @@ export default StyleSheet.create( {
     fontFamily: fonts.playful,
     fontSize: fontSize.mediumHeader,
     marginLeft: margins.medium,
-    marginTop: margins.medium,
-    fontWeight: "600"
+    marginTop: margins.medium
   },
   container: {
     flex: 1,
