@@ -105,7 +105,6 @@ class CameraScreen extends Component<Props> {
           orientation: "portrait"
         } )
         .then( ( data ) => {
-          console.log( data, "data in android" );
           if ( Platform.OS === "android" ) {
             this.requestAndroidPermissions( data );
           } else {
