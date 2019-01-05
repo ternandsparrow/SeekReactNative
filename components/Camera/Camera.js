@@ -99,7 +99,11 @@ class CameraScreen extends Component<Props> {
         pictureTaken: true
       } );
       this.camera
-        .takePictureAsync( { fixOrientation: true, pauseAfterCapture: true } )
+        .takePictureAsync( {
+          fixOrientation: true,
+          pauseAfterCapture: true,
+          orientation: "portrait"
+        } )
         .then( ( data ) => {
           console.log( data, "data in android" );
           if ( Platform.OS === "android" ) {
