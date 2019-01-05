@@ -98,8 +98,9 @@ class CameraScreen extends Component<Props> {
         pictureTaken: true
       } );
       this.camera
-        .takePictureAsync( { fixOrientation: true } )
+        .takePictureAsync( { fixOrientation: true, pauseAfterCapture: true } )
         .then( ( data ) => {
+          console.log( data, "data in android" );
           if ( Platform.OS === "android" ) {
             this.requestAndroidPermissions( data );
           } else {
@@ -240,7 +241,6 @@ class CameraScreen extends Component<Props> {
         style={{ flex: 1 }}
         flashMode={flash}
         zoom={zoom}
-        pauseAfterCapture
         permissionDialogTitle="Permission to use camera"
         permissionDialogMessage="We need your permission to use your camera phone"
       >

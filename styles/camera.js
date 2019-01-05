@@ -30,5 +30,9 @@ export default StyleSheet.create( {
     zIndex: 1,
     marginTop: margins.small,
     marginLeft: margins.medium
+  },
+  backgroundImage: {
+    width: "100%",
+    height: "100%"
   }
 } );
