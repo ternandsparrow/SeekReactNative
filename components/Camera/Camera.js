@@ -60,6 +60,12 @@ class CameraScreen extends Component<Props> {
     this.toggleFlash = this.toggleFlash.bind( this );
   }
 
+  componentDidMount() {
+    // if ( Platform.OS === "android" ) {
+    //   this.requestCameraPermissions();
+    // }
+  }
+
   getCameraCaptureFromGallery( id ) {
     const {
       latitude,
@@ -116,6 +122,20 @@ class CameraScreen extends Component<Props> {
             error: err.message
           } );
         } );
+    }
+  }
+
+  requestCameraPermissions = async () => {
+    console.log( "permissions being asked" );
+    try {
+      const granted = await PermissionsAndroid.request(
+        PermissionsAndroid.PERMISSIONS.CAMERA
+      );
+      if ( !granted === PermissionsAndroid.RESULTS.GRANTED ) {
+        this.showError( "Camera permissions denied" );
+      }
+    } catch ( err ) {
+      this.showError( `Camera permissions denied: ${err}` );
     }
   }
 
@@ -198,9 +218,7 @@ class CameraScreen extends Component<Props> {
       flashText,
       error,
       pictureTaken,
-      zoom,
-      latitude,
-      longitude
+      zoom
     } = this.state;
 
     const { navigation } = this.props;
@@ -251,6 +269,7 @@ class CameraScreen extends Component<Props> {
         style={{ flex: 1 }}
         flashMode={flash}
         zoom={zoom}
+        captureAudio={false}
         permissionDialogTitle="Permission to use camera"
         permissionDialogMessage="We need your permission to use your camera phone"
       >
@@ -266,8 +285,6 @@ class CameraScreen extends Component<Props> {
           flashText={flashText}
           toggleFlash={this.toggleFlash}
           toggleCamera={this.toggleCamera}
-          latitude={latitude}
-          longitude={longitude}
         />
         {cameraContent}
       </RNCamera>

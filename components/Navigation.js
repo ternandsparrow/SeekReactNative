@@ -74,10 +74,7 @@ const RootStack = createStackNavigator( {
     } )
   },
   Camera: {
-    screen: CameraNav,
-    navigationOptions: () => ( {
-      header: null
-    } )
+    screen: CameraNav
   },
   Location: {
     screen: LocationPickerScreen,
