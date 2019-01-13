@@ -14,7 +14,7 @@ export default StyleSheet.create( {
   header: {
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "space-between",
+    justifyContent: "space-around",
     alignItems: "center",
     marginTop: Platform.OS === "android" ? margins.medium + 5 : margins.medium,
     marginHorizontal: margins.medium
@@ -24,11 +24,5 @@ export default StyleSheet.create( {
     color: colors.white,
     fontFamily: fonts.default,
     textAlign: "center"
-  },
-  footer: {
-    flex: 0.2,
-    marginTop: margins.medium,
-    paddingBottom: padding.extraSmall,
-    backgroundColor: colors.black
   }
 } );

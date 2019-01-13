@@ -7,21 +7,17 @@ import {
   Platform,
   CameraRoll,
   View,
-  Text,
   TouchableOpacity,
   StatusBar
 } from "react-native";
-import Icon from "react-native-vector-icons/Feather";
+
 import { NavigationEvents } from "react-navigation";
 
-import { colors } from "../../styles/global";
 import styles from "../../styles/camera";
 import ErrorScreen from "../ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
 import CameraTopNav from "./CameraTopNav";
 
-const zoomOutIcon = ( <Icon name="zoom-out" size={30} color={colors.white} /> );
-const zoomInIcon = ( <Icon name="zoom-in" size={30} color={colors.white} /> );
 
 const flashModeOrder = {
   off: "on",
@@ -46,14 +42,12 @@ class CameraScreen extends Component<Props> {
     this.state = {
       cameraType: "back",
       flash: "off",
-      flashText: "OFF",
       error: null,
       latitude,
       longitude,
       id,
       commonName,
-      pictureTaken: false,
-      zoom: 0
+      pictureTaken: false
     };
 
     this.toggleCamera = this.toggleCamera.bind( this );
@@ -182,8 +176,7 @@ class CameraScreen extends Component<Props> {
     const { flash } = this.state;
 
     this.setState( {
-      flash: flashModeOrder[flash],
-      flashText: flashModeOrder[flash].toUpperCase()
+      flash: flashModeOrder[flash]
     } );
   }
 
@@ -195,30 +188,12 @@ class CameraScreen extends Component<Props> {
     } );
   }
 
-  zoomOut() {
-    const { zoom } = this.state;
-
-    this.setState( {
-      zoom: zoom - 0.1 < 0 ? 0 : zoom - 0.1
-    } );
-  }
-
-  zoomIn() {
-    const { zoom } = this.state;
-
-    this.setState( {
-      zoom: zoom + 0.1 > 1 ? 1 : zoom + 0.1
-    } );
-  }
-
   render() {
     const {
       cameraType,
       flash,
-      flashText,
       error,
-      pictureTaken,
-      zoom
+      pictureTaken
     } = this.state;
 
     const { navigation } = this.props;
@@ -235,22 +210,6 @@ class CameraScreen extends Component<Props> {
           ) : null }
           <View style={styles.main} />
           <View style={styles.footer}>
-            { Platform.OS === "android" ? (
-              <TouchableOpacity
-                style={styles.zoomButtons}
-                onPress={() => this.zoomIn()}
-              >
-                <Text>{zoomInIcon}</Text>
-              </TouchableOpacity>
-            ) : null}
-            { Platform.OS === "android" ? (
-              <TouchableOpacity
-                style={styles.zoomButtons}
-                onPress={() => this.zoomOut()}
-              >
-                <Text>{zoomOutIcon}</Text>
-              </TouchableOpacity>
-            ) : null}
             <TouchableOpacity
               onPress={() => this.takePicture()}
               style={styles.capture}
@@ -268,7 +227,6 @@ class CameraScreen extends Component<Props> {
         type={cameraType}
         style={{ flex: 1 }}
         flashMode={flash}
-        zoom={zoom}
         captureAudio={false}
         permissionDialogTitle="Permission to use camera"
         permissionDialogMessage="We need your permission to use your camera phone"
@@ -282,7 +240,7 @@ class CameraScreen extends Component<Props> {
         <CameraTopNav
           navigation={navigation}
           cameraType={cameraType}
-          flashText={flashText}
+          flash={flash}
           toggleFlash={this.toggleFlash}
           toggleCamera={this.toggleCamera}
         />

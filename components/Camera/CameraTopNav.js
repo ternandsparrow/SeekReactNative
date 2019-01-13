@@ -17,14 +17,14 @@ const flashOnIcon = ( <Icon name="flash" size={25} color={colors.yellow} /> );
 const flashOffIcon = ( <Icon name="flash-off" size={25} color={colors.white} /> );
 
 type Props = {
-  flashText: string,
+  flash: string,
   navigation: any,
   toggleFlash: Function,
   toggleCamera: Function
 }
 
 const CameraTopNav = ( {
-  flashText,
+  flash,
   navigation,
   toggleFlash,
   toggleCamera
@@ -33,15 +33,12 @@ const CameraTopNav = ( {
     <View style={styles.header}>
       <TouchableOpacity
         style={styles.buttons}
-      />
-      <TouchableOpacity
-        style={styles.buttons}
         onPress={() => toggleFlash()}
       >
         {navigation.state.key === "CAMERA" ? (
           <Text style={styles.text}>
-            {flashText === "OFF" ? flashOffIcon : flashOnIcon}
-            {flashText}
+            {flash === "off" ? flashOffIcon : flashOnIcon}
+            {flash.toUpperCase()}
           </Text>
         ) : null}
       </TouchableOpacity>
