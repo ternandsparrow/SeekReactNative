@@ -9,6 +9,8 @@ export default StyleSheet.create( {
     flexGrow: 1
   },
   footer: {
+    flexDirection: "column",
+    alignItems: "center",
     justifyContent: "flex-end",
     paddingBottom: padding.large
   },
@@ -17,7 +19,6 @@ export default StyleSheet.create( {
     borderWidth: 3,
     borderRadius: 100,
     borderColor: colors.darkGray,
-    alignSelf: "center",
     width: 50,
     height: 50
   }

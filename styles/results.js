@@ -81,24 +81,21 @@ export default StyleSheet.create( {
   },
   footer: {
     marginTop: margins.small,
-    justifyContent: "flex-end"
+    alignItems: "center"
   },
   button: {
     backgroundColor: colors.darkGreen,
-    marginHorizontal: margins.mediumLarge,
     marginTop: margins.medium,
     marginBottom: margins.medium,
     borderRadius: 40,
+    height: 40,
+    width: 300,
     alignItems: "center",
     justifyContent: "center"
   },
   buttonText: {
     fontFamily: fonts.semibold,
     fontSize: fontSize.buttonText,
-    color: colors.white,
-    textAlign: "center",
-    justifyContent: "center",
-    paddingTop: padding.buttonTop,
-    paddingBottom: padding.buttonBottom
+    color: colors.white
   }
 } );

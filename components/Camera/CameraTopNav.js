@@ -29,31 +29,29 @@ const CameraTopNav = ( {
   toggleFlash,
   toggleCamera
 }: Props ) => (
-  <View style={styles.container}>
-    <View style={styles.header}>
-      <TouchableOpacity
-        style={styles.buttons}
-      />
-      <TouchableOpacity
-        style={styles.buttons}
-        onPress={() => toggleFlash()}
-      >
-        {navigation.state.key === "CAMERA" ? (
-          <Text style={styles.text}>
-            {flash === "off" ? flashOffIcon : flashOnIcon}
-            {flash.toUpperCase()}
-          </Text>
-        ) : null}
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.buttons}
-        onPress={() => toggleCamera()}
-      >
-        {navigation.state.key === "CAMERA" ? (
-          <Text style={styles.text}>{cameraFlipIcon}</Text>
-        ) : null}
-      </TouchableOpacity>
-    </View>
+  <View style={styles.header}>
+    <TouchableOpacity
+      style={styles.buttons}
+    />
+    <TouchableOpacity
+      style={styles.buttons}
+      onPress={() => toggleFlash()}
+    >
+      {navigation.state.key === "CAMERA" ? (
+        <Text style={styles.text}>
+          {flash === "off" ? flashOffIcon : flashOnIcon}
+          {flash.toUpperCase()}
+        </Text>
+      ) : null}
+    </TouchableOpacity>
+    <TouchableOpacity
+      style={styles.buttons}
+      onPress={() => toggleCamera()}
+    >
+      {navigation.state.key === "CAMERA" ? (
+        <Text style={styles.text}>{cameraFlipIcon}</Text>
+      ) : null}
+    </TouchableOpacity>
   </View>
 );
 

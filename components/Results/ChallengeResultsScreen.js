@@ -81,11 +81,11 @@ const ChallengeResultsScreen = ( {
         <View style={styles.row}>
           <Text style={styles.text}>{text}</Text>
         </View>
-        <TouchableHighlight style={styles.button}>
-          <Text
-            style={styles.buttonText}
-            onPress={() => savePhotoOrStartOver()}
-          >
+        <TouchableHighlight
+          style={styles.button}
+          onPress={() => savePhotoOrStartOver()}
+        >
+          <Text style={styles.buttonText}>
             {buttonText}
           </Text>
         </TouchableHighlight>

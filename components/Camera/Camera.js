@@ -219,7 +219,7 @@ class CameraScreen extends Component<Props> {
     }
 
     return (
-      <View style={{ flex: 1 }}>
+      <View style={styles.container}>
         <NavigationEvents
           onWillFocus={() => {
             this.resumeCamera();
@@ -239,7 +239,7 @@ class CameraScreen extends Component<Props> {
               this.camera = ref;
             }}
             type={cameraType}
-            style={{ flex: 1 }}
+            style={styles.container}
             flashMode={flash}
             captureAudio={false}
             permissionDialogTitle="Permission to use camera"
