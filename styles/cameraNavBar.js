@@ -14,9 +14,9 @@ export default StyleSheet.create( {
   header: {
     flexDirection: "row",
     flexWrap: "nowrap",
-    justifyContent: "space-around",
+    justifyContent: "space-between",
     alignItems: "center",
-    marginTop: Platform.OS === "android" ? margins.medium + 5 : margins.medium,
+    marginTop: Platform.OS === "android" ? margins.medium : margins.medium,
     marginHorizontal: margins.medium
   },
   text: {

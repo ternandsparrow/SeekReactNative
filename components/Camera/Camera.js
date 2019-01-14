@@ -222,14 +222,12 @@ class CameraScreen extends Component<Props> {
       <View style={{ flex: 1 }}>
         <NavigationEvents
           onWillFocus={() => {
-            console.log( "focused tab" );
             this.resumeCamera();
             this.setState( {
               focusedScreen: true
             } );
           }}
           onWillBlur={() => {
-            console.log( "unfocused tab" );
             this.setState( {
               focusedScreen: false
             } );

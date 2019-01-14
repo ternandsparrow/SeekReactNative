@@ -33,6 +33,9 @@ const CameraTopNav = ( {
     <View style={styles.header}>
       <TouchableOpacity
         style={styles.buttons}
+      />
+      <TouchableOpacity
+        style={styles.buttons}
         onPress={() => toggleFlash()}
       >
         {navigation.state.key === "CAMERA" ? (
