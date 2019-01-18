@@ -28,41 +28,39 @@ const ChallengeGrid = ( {
   navigation,
   taxa
 }: Props ) => (
-  <View style={styles.taxonGrid}>
-    <FlatList
-      data={ taxa }
-      scrollEnabled={false}
-      keyExtractor={ taxon => taxon.id }
-      numColumns={ 3 }
-      renderItem={ ( { item } ) => (
-        <View style={ styles.gridCell }>
-          <TouchableOpacity
-            onPress={ () => navigation.push( "Species", {
-              id: item.id,
-              latitude,
-              longitude,
-              location,
-              seen: false,
-              commonName: capitalizeNames( item.preferred_common_name ),
-              scientificName: item.name
-            } ) }
-          >
-            <View style={ styles.gridCellContents }>
-              <Image
-                style={styles.image}
-                source={ { uri: item.default_photo.medium_url } }
-              />
-              <View style={ styles.cellTitle }>
-                <Text numberOfLines={2} style={ styles.cellTitleText }>
-                  { capitalizeNames( item.preferred_common_name || item.name ) }
-                </Text>
-              </View>
+  <FlatList
+    data={ taxa }
+    scrollEnabled={false}
+    keyExtractor={ taxon => taxon.id }
+    numColumns={ 3 }
+    renderItem={ ( { item } ) => (
+      <View style={ styles.gridCell }>
+        <TouchableOpacity
+          onPress={ () => navigation.push( "Species", {
+            id: item.id,
+            latitude,
+            longitude,
+            location,
+            seen: false,
+            commonName: capitalizeNames( item.preferred_common_name ),
+            scientificName: item.name
+          } ) }
+        >
+          <View style={ styles.gridCellContents }>
+            <Image
+              style={styles.image}
+              source={ { uri: item.default_photo.medium_url } }
+            />
+            <View style={ styles.cellTitle }>
+              <Text numberOfLines={2} style={ styles.cellTitleText }>
+                { capitalizeNames( item.preferred_common_name || item.name ) }
+              </Text>
             </View>
-          </TouchableOpacity>
-        </View>
-      ) }
-    />
-  </View>
+          </View>
+        </TouchableOpacity>
+      </View>
+    ) }
+  />
 );
 
 export default ChallengeGrid;

@@ -252,45 +252,43 @@ class MainScreen extends Component<Props, State> {
 
     return (
       <SafeAreaView style={styles.safeContainer}>
-        <View style={styles.mainContainer}>
-          <NavigationEvents
-            onWillFocus={() => {
-              this.fetchSpeciesAndBadgeCount();
-              this.fetchUserLocation();
-            }}
+        <NavigationEvents
+          onWillFocus={() => {
+            this.fetchSpeciesAndBadgeCount();
+            this.fetchUserLocation();
+          }}
+        />
+        <ImageBackground
+          style={styles.backgroundImage}
+          source={require( "../assets/backgrounds/background.png" )}
+        >
+          { taxaName ? (
+            <Banner
+              bannerText={`${taxaName} collected!`}
+              main
+              id={id}
+            />
+          ) : null }
+          <ChallengeHeader
+            latitude={latitude}
+            longitude={longitude}
+            location={location}
+            loading={loading}
+            navigation={navigation}
+            taxaType={taxaType}
+            taxaName={taxaName}
           />
-          <ImageBackground
-            style={styles.backgroundImage}
-            source={require( "../assets/backgrounds/background.png" )}
-          >
-            <View style={styles.container}>
-              { taxaName ? (
-                <Banner
-                  bannerText={`${taxaName} collected!`}
-                  main
-                  id={id}
-                />
-              ) : null }
-              <ChallengeHeader
-                latitude={latitude}
-                longitude={longitude}
-                location={location}
-                loading={loading}
-                navigation={navigation}
-                taxaType={taxaType}
-                taxaName={taxaName}
-              />
-              {challenges}
-              <ChallengeFooter
-                latitude={latitude}
-                longitude={longitude}
-                navigation={navigation}
-                badgeCount={badgeCount}
-                speciesCount={speciesCount}
-              />
-            </View>
-          </ImageBackground>
-        </View>
+          <View style={styles.taxonGrid}>
+            {challenges}
+          </View>
+          <ChallengeFooter
+            latitude={latitude}
+            longitude={longitude}
+            navigation={navigation}
+            badgeCount={badgeCount}
+            speciesCount={speciesCount}
+          />
+        </ImageBackground>
       </SafeAreaView>
     );
   }

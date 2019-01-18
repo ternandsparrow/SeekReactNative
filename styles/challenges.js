@@ -14,16 +14,8 @@ export default StyleSheet.create( {
     flex: 1,
     backgroundColor: "#0C2D3C"
   },
-  mainContainer: {
-    flex: 1,
-    backgroundColor: colors.darkBlue
-  },
   backgroundImage: {
-    flex: 1
-  },
-  container: {
     flex: 1,
-    flexDirection: "column",
     justifyContent: "space-between"
   },
   header: {
@@ -50,6 +42,9 @@ export default StyleSheet.create( {
     fontFamily: fonts.playful,
     fontSize: fontSize.buttonText
   },
+  taxonGrid: {
+    alignItems: "center"
+  },
   taxonChooser: {
     paddingRight: padding.large
   },
@@ -58,14 +53,10 @@ export default StyleSheet.create( {
     fontFamily: fonts.default,
     fontSize: fontSize.text
   },
-  taxonGrid: {
-    alignItems: "center"
-  },
   gridCell: {
     width: width / 3 - 2,
-    height: 138,
     paddingHorizontal: padding.medium,
-    marginBottom: margins.extraSmall
+    paddingTop: padding.medium
   },
   image: {
     width: "100%",
@@ -79,7 +70,7 @@ export default StyleSheet.create( {
     height: 41,
     backgroundColor: colors.darkBlue,
     padding: padding.medium,
-    alignItems: "flex-start",
+    alignItems: "center",
     justifyContent: "flex-start",
     flexDirection: "row",
     flexWrap: "wrap"
@@ -87,12 +78,10 @@ export default StyleSheet.create( {
   cellTitleText: {
     color: colors.white,
     fontFamily: fonts.default,
-    fontSize: fontSize.extraSmallText,
-    paddingTop: padding.extraSmall
+    fontSize: fontSize.extraSmallText
   },
   footer: {
     height: Platform.OS === "ios" ? 45 : 75,
-    justifyContent: "flex-end",
     backgroundColor: colors.darkDesaturatedBlue
   },
   bottomRow: {
