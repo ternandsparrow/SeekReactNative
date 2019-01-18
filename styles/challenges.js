@@ -32,7 +32,6 @@ export default StyleSheet.create( {
   headerText: {
     marginLeft: margins.medium,
     fontSize: fontSize.smallText,
-    lineHeight: 14,
     color: colors.white,
     fontFamily: fonts.default
   },
@@ -43,12 +42,10 @@ export default StyleSheet.create( {
   },
   locationChooser: {
     paddingLeft: padding.large,
-    maxWidth: 200,
+    maxWidth: 210,
     flexWrap: "nowrap"
   },
   locationChooserText: {
-    flex: 1,
-    maxWidth: 200,
     color: colors.white,
     fontFamily: fonts.playful,
     fontSize: fontSize.buttonText
@@ -68,7 +65,7 @@ export default StyleSheet.create( {
     width: width / 3 - 2,
     height: 138,
     paddingHorizontal: padding.medium,
-    marginBottom: Platform.OS === "android" ? margins.medium : margins.extraSmall
+    marginBottom: margins.extraSmall
   },
   image: {
     width: "100%",
@@ -94,8 +91,7 @@ export default StyleSheet.create( {
     paddingTop: padding.extraSmall
   },
   footer: {
-    marginTop: margins.extraSmall,
-    height: Platform.OS === "ios" ? 45 : 70,
+    height: Platform.OS === "ios" ? 45 : 75,
     justifyContent: "flex-end",
     backgroundColor: colors.darkDesaturatedBlue
   },
@@ -119,6 +115,6 @@ export default StyleSheet.create( {
   },
   addPhotoButton: {
     paddingRight: padding.medium,
-    paddingBottom: padding.extraSmall
+    paddingBottom: padding.medium
   }
 } );

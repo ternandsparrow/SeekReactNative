@@ -47,7 +47,7 @@ const ChallengeResultsScreen = ( {
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <ScrollView>
       <View style={styles.header}>
         <Text style={styles.headerText}>{title}</Text>
         <View style={styles.row}>

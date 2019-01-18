@@ -336,7 +336,8 @@ class ChallengeResults extends Component<Props> {
           this.fetchSeenTaxaIds( match.taxon.id );
         } );
       } )
-      .catch( () => {
+      .catch( ( error ) => {
+        console.log( error, "error cv" );
         this.setState( {
           error: i18n.t( "results.computer_vision_error" )
         } );

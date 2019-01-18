@@ -14,10 +14,6 @@ export default StyleSheet.create( {
   backgroundImage: {
     flex: 1
   },
-  container: {
-    flexDirection: "column",
-    justifyContent: "flex-start"
-  },
   header: {
     marginTop: margins.medium,
     alignItems: "center",
@@ -43,8 +39,8 @@ export default StyleSheet.create( {
     fontFamily: fonts.default
   },
   matchImage: {
-    marginTop: margins.small,
-    zIndex: 1
+    marginTop: 7,
+    paddingBottom: padding.large
   },
   imageBackground: {
     backgroundColor: colors.darkDesaturatedBlue,
