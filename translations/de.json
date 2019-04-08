@@ -186,7 +186,7 @@
         "class": "Klasse",
         "order": "Bestellung",
         "family": "Familie",
-        "genus": "Geschlecht",
+        "genus": "Genus",
         "species": "Spezies",
         "loading": "Die Seek-Kamera lädt",
         "error_camera": "Wir brauchen Zugang zur Kamera, um die Arten zu identifizieren!",
