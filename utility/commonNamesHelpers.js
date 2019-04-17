@@ -22,18 +22,18 @@ const setupCommonNames = () => {
           realm.delete( realm.objects( "CommonNamesRealm" ) );
           // load names from each file. React-native requires need to be strings
           // so each file is listed here instead of some kind of loop
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-0" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-1" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-2" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-3" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-4" ).default );
-          addCommonNamesFromFile( realm,
-            require( "./commonNames/commonNamesDict-5" ).default );
+          //addCommonNamesFromFile( realm,
+            //require( "./commonNames/commonNamesDict-0" ).default );
+          //addCommonNamesFromFile( realm,
+            //require( "./commonNames/commonNamesDict-1" ).default );
+          //addCommonNamesFromFile( realm,
+            //require( "./commonNames/commonNamesDict-2" ).default );
+          //addCommonNamesFromFile( realm,
+            //require( "./commonNames/commonNamesDict-3" ).default );
+          //addCommonNamesFromFile( realm,
+            //require( "./commonNames/commonNamesDict-4" ).default );
+          //addCommonNamesFromFile( realm,
+            //require( "./commonNames/commonNamesDict-5" ).default );
         }
       } );
     } ).catch( ( err ) => {

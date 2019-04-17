@@ -1,3 +1,54 @@
+# A note on this fork
+As iNat outsiders, there are some things that we don't have access to:
+
+  1. the AR camera models
+  1. the github:inaturalist/react-native-inat-camera repo/project
+  1. the `commonNamesDict-n.js` files
+
+So, in order to get the app to run at all, I've hacked the bits that don't work out.
+
+
+## Our own setup instructions
+
+  1. install deps
+      ```bash
+      npm install
+      ```
+  1. create required config files
+      ```bash
+      cat <<EOF > config.js
+      export default {
+        jwtSecret: "JWT_SECRET_FOR_SIGNING_ANONYMOUS_TOKENS"
+      };
+      EOF
+      cat <<EOF > android/app/src/main/res/values/config.xml
+      <?xml version="1.0" encoding="utf-8"?>
+      <resources>
+        <string name="gmaps_api_key">xxx</string>
+      </resources>
+      EOF
+      ```
+  1. run the app in your emulator
+      ```bash
+      react-native run-android
+      ```
+  1. at this stage you'll probably get the `unable to load script from assets 'index.android.bundle'` error, use these commands to fix it:
+      ```bash
+      cd android/
+      ./gradlew clean
+      cd ..
+      react-native bundle \
+        --platform android \
+        --dev false \
+        --entry-file index.js \
+        --bundle-output android/app/src/main/assets/index.android.bundle \
+        --assets-dest android/app/src/main/res
+      ```
+  1. run `react-native run-android` again and it should work
+
+
+Original README content follows...
+
 # Seek App Version 2.0
 
 Seek is an app built for iOS and Android. 

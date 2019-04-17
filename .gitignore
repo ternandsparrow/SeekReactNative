@@ -66,3 +66,6 @@ taxonomy.json
 *.mlmodel
 utility/common-names.json
 utility/commonNames/*
+android/app/src/main/res/drawable-*
+android/app/src/main/assets/index.android.bundle
+android/app/src/main/res/raw/

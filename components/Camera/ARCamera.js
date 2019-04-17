@@ -16,7 +16,7 @@ import {
 import { NavigationEvents } from "react-navigation";
 import RNFS from "react-native-fs";
 
-import INatCamera from "react-native-inat-camera";
+//import INatCamera from "react-native-inat-camera";
 
 import ErrorScreen from "./ErrorScreen";
 import LoadingWheel from "../LoadingWheel";
@@ -229,7 +229,7 @@ class ARCamera extends Component<Props> {
     const { predictions } = this.state;
     const { navigation } = this.props;
 
-    navigation.navigate( "Results", {
+    navigation.push( "Results", {
       image: photo.image,
       time: photo.timestamp,
       latitude: null,
@@ -358,23 +358,6 @@ class ARCamera extends Component<Props> {
           >
             <Image source={icons.cameraHelp} />
           </TouchableOpacity>
-        ) : null}
-        {focusedScreen ? (
-          <INatCamera
-            ref={( ref ) => {
-              this.camera = ref;
-            }}
-            onTaxaDetected={this.onTaxaDetected}
-            onCameraError={this.onCameraError}
-            onCameraPermissionMissing={this.onCameraPermissionMissing}
-            onClassifierError={this.onClassifierError}
-            onDeviceNotSupported={this.onDeviceNotSupported}
-            modelPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/optimized-model.mlmodelc` : `${RNFS.DocumentDirectoryPath}/optimized-model.tflite`}
-            taxonomyPath={Platform.OS === "ios" ? `${RNFS.DocumentDirectoryPath}/taxonomy.json` : `${RNFS.DocumentDirectoryPath}/taxonomy.csv`}
-            taxaDetectionInterval={Platform.OS === "ios" ? 1000 : "1000"}
-            confidenceThreshold={Platform.OS === "ios" ? 0.7 : "0.7"}
-            style={styles.camera}
-          />
         ) : null}
       </View>
     );
